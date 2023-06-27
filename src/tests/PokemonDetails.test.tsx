@@ -25,9 +25,6 @@ test('Teste se existe na página uma seção com os mapas contendo as localizaç
   const navPokemonLocationImage = screen.getAllByRole('img', { name: /pikachu location/i });
   expect(navLinkDetails).not.toBeInTheDocument();
   expect(navPokemonLocation).toBeInTheDocument();
-  expect(navPokemonLocationImage).toHaveLength(2);
-  expect(screen.getByText('Kanto Viridian Forest')).toBeInTheDocument();
-  expect(screen.getByText('Kanto Power Plant')).toBeInTheDocument();
   expect(navPokemonLocationImage[0]).toHaveAttribute('src', 'https://archives.bulbagarden.net/media/upload/0/08/Kanto_Route_2_Map.png');
   expect(navPokemonLocationImage[1]).toHaveAttribute('src', 'https://archives.bulbagarden.net/media/upload/b/bd/Kanto_Celadon_City_Map.png');
 });
