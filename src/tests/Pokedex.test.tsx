@@ -9,7 +9,7 @@ test('Teste se a página contém um heading h2 com o texto Encountered Pokémon'
   expect(navHomePage).toBeInTheDocument();
 });
 
-test('este se é exibido o próximo Pokémon da lista quando o botão Próximo Pokémon é clicado', async () => {
+test('Teste se é exibido o próximo Pokémon da lista quando o botão Próximo Pokémon é clicado', async () => {
   renderWithRouter(<App />, { route: '/' });
   const navButtonNextPokemon = screen.getByRole('button', { name: /próximo pokémon/i });
   expect(navButtonNextPokemon).toBeInTheDocument();
@@ -30,6 +30,7 @@ test('Teste se a Pokédex tem os botões de filtro', async () => {
   const navButtonPoison = screen.getByRole('button', { name: /poison/i });
   const navButtonPsychic = screen.getByRole('button', { name: /psychic/i });
   const navButtonNormal = screen.getByRole('button', { name: /normal/i });
+  const navButtonDragon = screen.getByRole('button', { name: /dragon/i });
   expect(navButtonAll).toBeInTheDocument();
   expect(navButtonElectric).toBeInTheDocument();
   expect(navButtonFire).toBeInTheDocument();
@@ -37,6 +38,7 @@ test('Teste se a Pokédex tem os botões de filtro', async () => {
   expect(navButtonPoison).toBeInTheDocument();
   expect(navButtonPsychic).toBeInTheDocument();
   expect(navButtonNormal).toBeInTheDocument();
+  expect(navButtonDragon).toBeInTheDocument();
 });
 
 test('Teste se a Pokédex contém um botão para resetar o filtro', async () => {
