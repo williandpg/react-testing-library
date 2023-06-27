@@ -6,40 +6,40 @@ import App from '../App';
 
 test('Teste se o topo da aplicação contém um conjunto fixo de links de navegação', () => {
   renderWithRouter(<App />, { route: '/' });
-  const pageHome = screen.getByRole('link', { name: 'Home' });
-  const pageAbout = screen.getByRole('link', { name: 'About' });
-  const pageFavoritePokemons = screen.getByRole('link', { name: 'Favorite Pokémons' });
-  expect(pageHome).toBeInTheDocument();
-  expect(pageAbout).toBeInTheDocument();
-  expect(pageFavoritePokemons).toBeInTheDocument();
+  const navHomePage = screen.getByRole('link', { name: 'Home' });
+  const navAboutPage = screen.getByRole('link', { name: 'About' });
+  const navFavoritesPage = screen.getByRole('link', { name: 'Favorite Pokémon' });
+  expect(navHomePage).toBeInTheDocument();
+  expect(navAboutPage).toBeInTheDocument();
+  expect(navFavoritesPage).toBeInTheDocument();
 });
 
 test('Teste se a aplicação é redirecionada para a página inicial, na URL /, ao clicar no link Home da barra de navegação', async () => {
   renderWithRouter(<App />, { route: '/' });
-  const pageHome = screen.getByRole('link', { name: 'Home' });
-  await userEvent.click(pageHome);
-  const homePageNav = screen.getByRole('heading', { name: /encountered pokémons/i });
-  expect(homePageNav).toBeInTheDocument();
+  const navHomePage = screen.getByRole('link', { name: 'Home' });
+  await userEvent.click(navHomePage);
+  const linkHomePage = screen.getByRole('heading', { name: /encountered pokémon/i });
+  expect(linkHomePage).toBeInTheDocument();
 });
 
 test('Teste se a aplicação é redirecionada para a página About, na URL /about, ao clicar no link About da barra de navegação', async () => {
   renderWithRouter(<App />, { route: '/' });
-  const pageAbout = screen.getByRole('link', { name: 'About' });
-  await userEvent.click(pageAbout);
-  const aboutPageNav = screen.getByRole('heading', { name: /about pokédex/i });
-  expect(aboutPageNav).toBeInTheDocument();
+  const navAboutPage = screen.getByRole('link', { name: 'About' });
+  await userEvent.click(navAboutPage);
+  const linkAboutPage = screen.getByRole('heading', { name: /about pokédex/i });
+  expect(linkAboutPage).toBeInTheDocument();
 });
 
 test('Teste se a aplicação é redirecionada para a página de Pokémons Favoritados, na URL /favorites, ao clicar no link Favorite Pokémon da barra de navegação', async () => {
   renderWithRouter(<App />, { route: '/' });
-  const pageFavoritePokemons = screen.getByRole('link', { name: 'Favorite Pokémons' });
-  await userEvent.click(pageFavoritePokemons);
-  const favoritePokemonsPageNav = screen.getByRole('heading', { name: /favorite pokémons/i });
-  expect(favoritePokemonsPageNav).toBeInTheDocument();
+  const navFavoritesPage = screen.getByRole('link', { name: 'Favorite Pokémon' });
+  await userEvent.click(navFavoritesPage);
+  const linkFavoritesPage = screen.getByRole('heading', { name: /favorite pokémon/i });
+  expect(linkFavoritesPage).toBeInTheDocument();
 });
 
 test('Teste se a aplicação é redirecionada para a página Not Found ao entrar em uma URL desconhecida', async () => {
   renderWithRouter(<App />, { route: '/not-found' });
-  const pageNotFound = screen.getByRole('heading', { name: /page requested not found/i });
-  expect(pageNotFound).toBeInTheDocument();
+  const linkNotFoundPage = screen.getByRole('heading', { name: /page requested not found/i });
+  expect(linkNotFoundPage).toBeInTheDocument();
 });
